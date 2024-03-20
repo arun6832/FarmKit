@@ -1,0 +1,155 @@
+{%load static%}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Form-v10 by Colorlib</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/montserrat-font.css">
+    <link rel="stylesheet" type="text/css"
+        href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+    <meta name="robots" content="noindex, follow">
+    <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"
+        nonce="d8822e17-add0-48f6-bb66-e0a43cda635d"></script>
+    <script defer="" referrerpolicy="origin"
+        src="/cdn-cgi/zaraz/s.js?z=JTdCJTIyZXhlY3V0ZWQlMjIlM0ElNUIlNUQlMkMlMjJ0JTIyJTNBJTIyRm9ybS12MTAlMjBieSUyMENvbG9ybGliJTIyJTJDJTIyeCUyMiUzQTAuODg5NjEyMjYzMzEzMTA0NSUyQyUyMnclMjIlM0ExNTM2JTJDJTIyaCUyMiUzQTg2NCUyQyUyMmolMjIlM0E2OTUlMkMlMjJlJTIyJTNBMTUzNiUyQyUyMmwlMjIlM0ElMjJodHRwcyUzQSUyRiUyRmNvbG9ybGliLmNvbSUyRmV0YyUyRnJlZ2Zvcm0lMkZjb2xvcmxpYi1yZWdmb3JtLTM2JTJGJTIyJTJDJTIyciUyMiUzQSUyMmh0dHBzJTNBJTJGJTJGZnJlZWZyb250ZW5kLmNvbSUyRiUyMiUyQyUyMmslMjIlM0EyNCUyQyUyMm4lMjIlM0ElMjJVVEYtOCUyMiUyQyUyMm8lMjIlM0EtMzMwJTJDJTIycSUyMiUzQSU1QiU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMCUyMiUyQyUyMmNvbmZpZyUyMiUyQyU3QiUyMnNjb3BlJTIyJTNBJTIycGFnZSUyMiU3RCU1RCU3RCUyQyU3QiUyMm0lMjIlM0ElMjJzZXQlMjIlMkMlMjJhJTIyJTNBJTVCJTIyMSUyMiUyQyUyMlVBLTIzNTgxNTY4LTEzJTIyJTJDJTdCJTIyc2NvcGUlMjIlM0ElMjJwYWdlJTIyJTdEJTVEJTdEJTVEJTdE"></script>
+    <script
+        nonce="d8822e17-add0-48f6-bb66-e0a43cda635d">try { (function (w, d) { !function (mo, mp, mq, mr) { mo[mq] = mo[mq] || {}; mo[mq].executed = []; mo.zaraz = { deferred: [], listeners: [] }; mo.zaraz.q = []; mo.zaraz._f = function (ms) { return async function () { var mt = Array.prototype.slice.call(arguments); mo.zaraz.q.push({ m: ms, a: mt }) } }; for (const mu of ["track", "set", "debug"]) mo.zaraz[mu] = mo.zaraz._f(mu); mo.zaraz.init = () => { var mv = mp.getElementsByTagName(mr)[0], mw = mp.createElement(mr), mx = mp.getElementsByTagName("title")[0]; mx && (mo[mq].t = mp.getElementsByTagName("title")[0].text); mo[mq].x = Math.random(); mo[mq].w = mo.screen.width; mo[mq].h = mo.screen.height; mo[mq].j = mo.innerHeight; mo[mq].e = mo.innerWidth; mo[mq].l = mo.location.href; mo[mq].r = mp.referrer; mo[mq].k = mo.screen.colorDepth; mo[mq].n = mp.characterSet; mo[mq].o = (new Date).getTimezoneOffset(); if (mo.dataLayer) for (const mB of Object.entries(Object.entries(dataLayer).reduce(((mC, mD) => ({ ...mC[1], ...mD[1] })), {}))) zaraz.set(mB[0], mB[1], { scope: "page" }); mo[mq].q = []; for (; mo.zaraz.q.length;) { const mE = mo.zaraz.q.shift(); mo[mq].q.push(mE) } mw.defer = !0; for (const mF of [localStorage, sessionStorage]) Object.keys(mF || {}).filter((mH => mH.startsWith("_zaraz_"))).forEach((mG => { try { mo[mq]["z_" + mG.slice(7)] = JSON.parse(mF.getItem(mG)) } catch { mo[mq]["z_" + mG.slice(7)] = mF.getItem(mG) } })); mw.referrerPolicy = "origin"; mw.src = "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(mo[mq]))); mv.parentNode.insertBefore(mw, mv) };["complete", "interactive"].includes(mp.readyState) ? zaraz.init() : mo.addEventListener("DOMContentLoaded", zaraz.init) }(w, d, "zarazData", "script"); })(window, document) } catch (e) { throw fetch("/cdn-cgi/zaraz/t"), e; };</script>
+</head>
+
+<body class="form-v10">
+    <div class="page-content">
+        <div class="form-v10-content">
+            <form class="form-detail" action="#" method="post" id="myform">
+                <div class="form-left">
+                    <h2>General Infomation</h2>
+
+                    <div class="form-group">
+                        <div class="form-row form-row-1">
+                            <input type="text" name="first_name" id="first_name" class="input-text"
+                                placeholder="First Name" required="">
+                        </div>
+                        <div class="form-row form-row-2">
+                            <input type="text" name="last_name" id="last_name" class="input-text"
+                                placeholder="Last Name" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <input type="text" name="Phone" class="Phone" id="Phone" placeholder="Phone Number" required="">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row form-row-4" style="margin-left: 48px;">
+                            <select name="Occupation">
+                                <option value="employees">None</option>
+                                <option value="trainee">Farmer</option>
+
+                            </select>
+                            <span class="select-btn">
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </span>
+                        </div>
+                        <!-- <div class="form-row form-row-4">
+                            <select name="employees">
+                                <option value="employees">Employees</option>
+                                <option value="trainee">Trainee</option>
+                                <option value="colleague">Colleague</option>
+                                <option value="associate">Associate</option>
+                            </select>
+                            <span class="select-btn">
+                                <i class="zmdi zmdi-chevron-down"></i>
+                            </span>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-right">
+                    <h2>General Information</h2>
+                    <div class="form-row form-row-4" style="margin-left: 48px;">
+                        <select name="Type of Farming">
+                            <option value="Type of Farming">Type of Farming</option>
+                            <option value="Crop">Crop</option>
+                            <option value="Livestock">Livestock</option>
+                            <option value="Both">Both</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row form-row-4" style="margin-left: 48px;">
+                        <select name="Farm produce">
+                            <option value="Farm produce">Farm produce</option>
+                            <option value="Crops">Crops</option>
+                            <option value="Livestock">Livestock</option>
+                            <option value="Both">Both</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row form-row-4" style="margin-left: 48px;">
+                        <select name="Main challenge">
+                            <option value="Main challenge">Main challenge</option>
+                            <option value="Pests">Pests</option>
+                            <option value="Water">Water</option>
+                            <option value="Market">Market</option>
+                            <option value="Labor">Labor</option>
+                            <option value="Other">Other</option>
+
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row form-row-4" style="margin-left: 48px;">
+                        <select name="Direct sales preference">
+                            <option value="Direct sales preference">Direct sales preference</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                            <option value="Sometimes">Sometimes</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row form-row-4" style="margin-left: 48px;">
+                        <select name="Specific interest">
+                            <option value="Specific interest">Specific interest</option>
+                            <option value="Sustainability">Sustainability</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Finance">Finance</option>
+                            <option value="Improvement">Improvement</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span class="select-btn">
+                            <i class="zmdi zmdi-chevron-down"></i>
+                        </span>
+                    </div>
+                    <div class="form-row-last">
+                        <input type="submit" name="register" class="register" value="Create Your Account ">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script defer=""
+        src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon="{&quot;rayId&quot;:&quot;8676e4e099a529f5&quot;,&quot;version&quot;:&quot;2024.3.0&quot;,&quot;token&quot;:&quot;cd0b4b3a733644fc843ef0b185f98241&quot;}"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
