@@ -136,20 +136,21 @@
         font-size: 12px;
     }
 </style>
+
 <div>
     <form class="login">
         <h2 class="form__title">Sign In</h2>
 
         <div>
-        <input required type="text" value="{{ request.POST.username }}" placeholder="Username" name="username" class="input">
-        <small class="form-text text-danger"> {{ errors.username }} </small>
+            <input required type="text" value="{{ request.POST.username }}" placeholder="Username" name="username" class="input">
+            <small class="form-text text-danger"> {{ errors.username }} </small>
         </div>
 
         <div>
-        <input type="password" placeholder="Password">
-        <small class="form-text text-danger"> {{ errors.username }} </small>
+            <input type="password" placeholder="Password">
+            <small class="form-text text-danger"> {{ errors.username }} </small>
         </div>
-        
+
         <button class="btn">Login</button>
     </form>
 </div>
