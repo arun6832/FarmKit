@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+import pickle
 
 def index(request):
     return render(request,'index.html')
@@ -51,7 +52,6 @@ def user_register(request):
         is_valid = len(errors.keys()) == 0
 
         if is_valid:
-
             user = User.objects.create_user(
                 first_name = first_name,
                 last_name = last_name,
@@ -67,7 +67,7 @@ def user_register(request):
         'errors' : errors
     }
 
-    return render (request, "register.html", context)
+    return render(request, "register.html", context)
 
 
 def user_login(request):
@@ -97,8 +97,32 @@ def user_logout(request):
     logout(request)
     return redirect('/home')
 
+
 def register(request):
     return render(request, 'register.html')
 
+
 def cart(request):
     return render(request, 'cart.html')
+
+
+def crop_suggestion(request):
+    if request.method == 'POST':
+        form = SoilDataForm(request.POST)
+        if form.is_valid():
+            # Load the serialized Random Forest model
+            with open("C:\Users\maadi\Downloads\Hackathons\Models\rf_pkl", 'rb') as file:
+                model = pickle.load(file)
+            
+            # Extract soil data from form inputs
+            soil_data = [form.cleaned_data[attr] for attr in []]
+            
+            # Make crop prediction using the loaded model
+            predicted_crop = model.predict([soil_data])[0]
+            
+            # Render the result along with the template
+            return render(request, 'crop_suggestion.html', {'predicted_crop': predicted_crop})
+    else:
+        form = SoilDataForm()
+    
+    return render(request, 'input_form.html', {'form': form})
