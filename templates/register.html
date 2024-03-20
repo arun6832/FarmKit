@@ -29,7 +29,6 @@
                 <div class="form-left">
                     <h2>User Infomation</h2>
 
-                    <div class="form-group">
                         <div class="form-row form-row-1 w-10">
                             <input required value="{{ request.POST.username }}" type="text" name="username" id="username" class="input-text"
                                 placeholder="Username">
@@ -50,7 +49,6 @@
                                 placeholder="Last Name">
                             <small class="form-text text-danger"> {{ errors.last_name }} </small>
                         </div>
-                    </div>
 
                     <div class="form-row">
                         <input required type="text" name="phone" class="Phone" id="Phone" placeholder="Phone Number">
