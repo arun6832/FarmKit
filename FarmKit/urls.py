@@ -32,6 +32,4 @@ urlpatterns = [
     path('cart',cart,name='cart'),
     path('crop',crop,name='crop'),
 
-
-
 ]
