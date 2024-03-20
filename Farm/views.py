@@ -27,7 +27,7 @@ def user_register(request):
         first_name = request.POST['first_name'].strip()
         last_name = request.POST['last_name'].strip()
         phone = request.POST['phone'].strip()
-        username = request.POST['register_number'].strip()
+        username = request.POST['username'].strip()
         password = request.POST['password'].strip()
 
         if not username:
@@ -91,7 +91,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('index.html')
+    return redirect('/index')
 
 def register(request):
     return render(request, 'register.html')
