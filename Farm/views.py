@@ -19,3 +19,6 @@ def contact(request):
 
 def products(request):
     return render(request,'products.html')
+
+def login(request):
+    return render(request,'login.html')
