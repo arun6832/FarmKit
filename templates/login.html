@@ -138,7 +138,10 @@
 </style>
 
 <div>
-    <form class="login">
+    <form method='POST' class="login" action="{% url 'login' %}">
+
+        {% csrf_token %}
+        
         <h2 class="form__title">Sign In</h2>
 
         <div>
@@ -148,9 +151,8 @@
 
         <div>
             <input type="password" placeholder="Password">
-            <small class="form-text text-danger"> {{ errors.username }} </small>
+            <small class="form-text text-danger"> {{ errors.password }} </small>
         </div>
-
         <button class="btn">Login</button>
     </form>
 </div>
