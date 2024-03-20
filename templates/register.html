@@ -30,12 +30,12 @@
                     <h2>User Infomation</h2>
 
                     <div class="form-group">
-                        <div class="form-row form-row-1">
+                        <div class="form-row form-row-1 w-10">
                             <input required value="{{ request.POST.username }}" type="text" name="username" id="username" class="input-text"
                                 placeholder="Username">
                             <small class="form-text text-danger"> {{ errors.username }} </small>
                         </div>
-                        <div class="form-row form-row-1" style="margin-top: 70px;">
+                        <div class="form-row form-row-1">
                             <input required value="{{ request.POST.password }}" type="text" name="password" id="password" class="input-text"
                                 placeholder="password">
                             <small class="form-text text-danger"> {{ errors.password }} </small>
