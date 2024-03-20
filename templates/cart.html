@@ -1,0 +1,71 @@
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/cart.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<div class="card">
+    <div class="row">
+        <div class="col-md-8 cart">
+            <div class="title">
+                <div class="row">
+                    <div class="col">
+                        <h4><b>Shopping Cart</b></h4>
+                    </div>
+                    <div class="col align-self-center text-right text-muted" id="item-count">3 items</div>
+                </div>
+            </div>
+            <div class="row border-top border-bottom">
+                <!-- Replace this section with new product information -->
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid product-image" src="{% static 'images/product1.jpg' %}"></div>
+                    <div class="col product-details">
+                        <div class="row text-muted product-name">Vegetable</div>
+                        <div class="row product-description">Fresh Vegetables</div>
+                    </div>
+                    <div class="col product-quantity">
+                        <a href="#" class="quantity-minus">-</a>
+                        <input type="text" class="quantity-input" value="1">
+                        <a href="#" class="quantity-plus">+</a>
+                    </div>
+                    <div class="col product-price">Rs 900.00</div>
+                    <!-- <div class="col product-total-price">Rs 900.00</div> -->
+                    <div class="col product-remove"><span class="close">&#10005;</span></div>
+                </div>
+                <!-- End of new product section -->
+            </div>
+            <div class="row">
+                <!-- Repeat the above structure for other products as needed -->
+            </div>
+            <div class="back-to-shop"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+        </div>
+        <div class="col-md-4 summary">
+            <div>
+                <h5><b>Summary</b></h5>
+            </div>
+            <hr>
+            <div class="row">
+               
+                <div class="col text-right" id="total-price-summary">₹ 132.00</div>
+            </div>
+            <form>
+                <p>SHIPPING</p>
+                <select>
+                    <option class="text-muted">Standard-Delivery- ₹ 5.00</option>
+                </select>
+                <p>GIVE CODE</p>
+                <input id="code" placeholder="Enter your code">
+            </form>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="col">TOTAL PRICE</div>
+                <div class="col text-right">₹ 137.00</div>
+            </div>
+            <button class="btn">CHECKOUT</button>
+            
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'js/calculation.js' %}"></script>
