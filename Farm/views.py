@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from .forms import SoilDataForm
 import pickle
 
 def index(request):
@@ -114,8 +115,16 @@ def crop_suggestion(request):
             with open("C:\Users\maadi\Downloads\Hackathons\Models\rf_pkl", 'rb') as file:
                 model = pickle.load(file)
             
+            nitrogen_level = form.cleaned_data['nitrogen_level']
+            phosphorus_level = form.cleaned_data['phosphorus_level']
+            potassium_level = form.cleaned_data['potassium_level']
+            temperature = form.cleaned_data['temperature']
+            humidity_level = form.cleaned_data['humidity_level']
+            ph_level = form.cleaned_data['ph_level']
+            rainfall = form.cleaned_data['rainfall']
+
             # Extract soil data from form inputs
-            soil_data = [form.cleaned_data[attr] for attr in []]
+            soil_data = [form.cleaned_data[attr] for attr in [nitrogen_level, phosphorus_level, potassium_level, temperature, humidity_level, ph_level, rainfall]]
             
             # Make crop prediction using the loaded model
             predicted_crop = model.predict([soil_data])[0]
