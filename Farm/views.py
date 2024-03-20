@@ -102,3 +102,7 @@ def register(request):
 
 def cart(request):
     return render(request, 'cart.html')
+
+
+def crop(request):
+    return render(request, 'crop.html')

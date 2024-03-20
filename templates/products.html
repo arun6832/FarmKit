@@ -34,6 +34,73 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <!-- body -->
+<style>
+   /* Container styles */
+   .product {
+      padding: 50px 0;
+   }
+
+   /* Product box styles */
+   .product_box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+   }
+
+   .product_box:hover {
+      transform: translateY(-5px);
+   }
+
+   .product_box figure {
+      margin: 0;
+      padding: 0;
+   }
+
+   .product_box img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px 10px 0 0;
+   }
+
+   .product_box h3 {
+      padding: 10px;
+      background-color: #007bff;
+      color: #fff;
+      margin: 0;
+      border-radius: 0 0 10px 10px;
+   }
+
+   /* Product buttons styles */
+   .product_buttons {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+   }
+
+   .product_box:hover .product_buttons {
+      opacity: 1;
+   }
+
+   .buy_button, .sell_button {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 5px;
+      background-color: #28a745;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+   }
+
+   .buy_button:hover, .sell_button:hover {
+      background-color: #218838;
+   }
+</style>
 
 <body class="main-layout products_page">
    <!-- loader  -->
@@ -71,13 +138,16 @@
                               <a class="nav-link" href="{% url 'about' %}">About</a>
                            </li>
                            <li class="nav-item active">
-                              <a class="nav-link" href="{% url 'products' %}">Products </a>
+                              <a class="nav-link" href="{% url 'products' %}">Marketplace </a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'crop' %}">Crop Prediciton</a>
                            </li>
                            <li class="nav-item d_none">
                               <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
@@ -97,7 +167,7 @@
    <!-- end header -->
    <!-- product  section -->
    <div class="product">
-      <div class="container">
+      <!-- <div class="container">
          <div class="row">
             <div class="col-md-6">
                <div class="titlepage">
@@ -105,140 +175,165 @@
                </div>
             </div>
          </div>
-      </div>
-      <div class="container-fluid">
-         <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
-               <div class="product_box">
-                  <figure><img src="{% static 'images/product1.jpg' %}" alt="#" /></figure>
-                  <h3 class="black">vegetable</h3>
-               </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-               <div class="product_box">
-                  <figure><img src="{% static 'images/product2.jpg' %}" alt="#" /></figure>
-                  <h3>weat</h3>
-               </div>
-            </div>
-            <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 padding_right0">
-               <div class="product_box">
-                  <figure><img src="{% static 'images/product3.jpg' %}" alt="#" /></figure>
-                  <h3>fruit</h3>
-               </div>
-            </div>
-            <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 padding_left0">
-               <div class="product_box">
-                  <figure><img src="{% static 'images/product4.jpg' %}" alt="#" /></figure>
-                  <h3>sunflowere</h3>
-               </div>
-            </div>
-            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 padding_right0">
-               <div class="product_box">
-                  <figure><img src="{% static 'images/product5.jpg' %}" alt="#" /></figure>
-                  <h3>Livestock</h3>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!-- end product  section -->
-   <!--  footer -->
-   <footer id="contact">
-      <div class="footer">
-         <div class="container">
+      </div> -->
+      <h1 class="titlepage">Our Products</h1>
+      <div class="product">
+         <div class="container-fluid">
             <div class="row">
-               <div class="col-md-4">
-                  <div class="titlepage">
-                     <h2>Contact Us</h2>
+               <!-- Product boxes with BUY and SELL buttons -->
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="{% static 'images/product1.jpg' %}" alt="#" /></figure>
+                     <h3 class="black">Vegetable</h3>
+                     <div class="product_buttons">
+                        <a href="#" class="buy_button">BUY</a>
+                        <a href="#" class="sell_button">SELL</a>
+                     </div>
                   </div>
                </div>
-               <div class="col-md-12">
-                  <form id="request" class="main_form">
-                     <div class="row">
-                        <div class="col-md-3 ">
-                           <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
-                        </div>
-                        <div class="col-md-3">
-                           <input class="contactus" placeholder="Email" type="type" name="Email">
-                        </div>
-                        <div class="col-md-3">
-                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
-                        </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                           <ul class="social_icon">
-                              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                           </ul>
-                        </div>
-                        <div class="col-md-8">
-                           <textarea class="contactus1" placeholder="Message" type="type"
-                              Message="Name">Message </textarea>
-                        </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                           <button class="send_btn">Send</button>
-                        </div>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="{% static 'images/product2.jpg' %}" alt="#" /></figure>
+                     <h3 style="color: #fff;">wheat</h3>
+                     <div class="product_buttons">
+                        <a href="#" class="buy_button">BUY</a>
+                        <a href="#" class="sell_button">SELL</a>
                      </div>
-                  </form>
+                  </div>
                </div>
-               <div class="col-md-3 border_right">
-                  <ul class="location_icon">
-                     <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Locatins</li>
-                     <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i></a> +71 9087654321
-                     </li>
-                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
-                  </ul>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="{% static 'images/product3.jpg' %}" alt="#" /></figure>
+                     <h3 style="color: #fff;">FRUITS</h3>
+                     <div class="product_buttons">
+                        <a href="#" class="buy_button">BUY</a>
+                        <a href="#" class="sell_button">SELL</a>
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-3 border_right">
-                  <h3>Useful Link</h3>
-                  <ul class="link">
-                     <li><a href="#">humour, or </a></li>
-                     <li><a href="#">randomised words </a> </li>
-                     <li><a href="#">which don't look </a></li>
-                     <li><a href="#">even slightly </a> </li>
-                     <li><a href="#">believable. If </a></li>
-                  </ul>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="{% static 'images/product4.jpg' %}" alt="#" /></figure>
+                     <h3 style="color: #fff;">SUNFLOWER</h3>
+                     <div class="product_buttons">
+                        <a href="#" class="buy_button">BUY</a>
+                        <a href="#" class="sell_button">SELL</a>
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-3 border_right">
-                  <h3>Menus</h3>
-                  <ul class="link">
-                     <li><a href="{% url 'index' %}">Home</a></li>
-                     <li><a href="{% url 'about' %}">About</a></li>
-                     <li><a href="{% url 'products' %}">Products</a></li>
-                     <li><a href="{% url 'blog' %}">Blog</a></li>
-                     <li><a href="{% url 'contact' %}">Contact</a></li>
-                  </ul>
+               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+                  <div class="product_box">
+                     <figure><img src="{% static 'images/product5.jpg' %}" alt="#" /></figure>
+                     <h3 style="color: #fff;">LIVESTOCK</h3>
+                     <div class="product_buttons">
+                        <a href="#" class="buy_button">BUY</a>
+                        <a href="#" class="sell_button">SELL</a>
+                     </div>
+                  </div>
                </div>
-               <div class="col-md-3">
-                  <form class="bottom_form">
-                     <h3>Newsletter</h3>
-                     <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                     <button class="sub_btn">subscribe</button>
-                  </form>
-               </div>
+               <!-- Add similar product boxes for other products -->
             </div>
          </div>
-         <div class="copyright">
+      </div>
+      <!-- end product  section -->
+      <!--  footer -->
+      <footer id="contact">
+         <div class="footer">
             <div class="container">
                <div class="row">
+                  <div class="col-md-4">
+                     <div class="titlepage">
+                        <h2>Contact Us</h2>
+                     </div>
+                  </div>
                   <div class="col-md-12">
-                     <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a></p>
+                     <form id="request" class="main_form">
+                        <div class="row">
+                           <div class="col-md-3 ">
+                              <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
+                           </div>
+                           <div class="col-md-3">
+                              <input class="contactus" placeholder="Email" type="type" name="Email">
+                           </div>
+                           <div class="col-md-3">
+                              <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                           </div>
+                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                              <ul class="social_icon">
+                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                              </ul>
+                           </div>
+                           <div class="col-md-8">
+                              <textarea class="contactus1" placeholder="Message" type="type"
+                                 Message="Name">Message </textarea>
+                           </div>
+                           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                              <button class="send_btn">Send</button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="col-md-3 border_right">
+                     <ul class="location_icon">
+                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Locatins</li>
+                        <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i></a> +71 9087654321
+                        </li>
+                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3 border_right">
+                     <h3>Useful Link</h3>
+                     <ul class="link">
+                        <li><a href="#">humour, or </a></li>
+                        <li><a href="#">randomised words </a> </li>
+                        <li><a href="#">which don't look </a></li>
+                        <li><a href="#">even slightly </a> </li>
+                        <li><a href="#">believable. If </a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3 border_right">
+                     <h3>Menus</h3>
+                     <ul class="link">
+                        <li><a href="{% url 'index' %}">Home</a></li>
+                        <li><a href="{% url 'about' %}">About</a></li>
+                        <li><a href="{% url 'products' %}">Marketplace</a></li>
+                        <li><a href="{% url 'blog' %}">Blog</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-3">
+                     <form class="bottom_form">
+                        <h3>Newsletter</h3>
+                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                        <button class="sub_btn">subscribe</button>
+                     </form>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a>
+                        </p>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
-      </div>
-   </footer>
-   <!-- end footer -->
-   <!-- Javascript files-->
-   <script src="{% static 'js/jquery.min.js' %}"></script>
-   <script src="{% static 'js/popper.min.js' %}"></script>
-   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-   <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
-   <!-- sidebar -->
-   <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-   <script src="{% static 'js/custom.js' %}"></script>
+      </footer>
+      <!-- end footer -->
+      <!-- Javascript files-->
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+      <!-- sidebar -->
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
 </body>
 
 </html>

@@ -30,5 +30,8 @@ urlpatterns = [
     path('logout',user_logout,name='logout'),
     path('register',user_register,name='register'),
     path('cart',cart,name='cart'),
+    path('crop',crop,name='crop'),
+
+
 
 ]
