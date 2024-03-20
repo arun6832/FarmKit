@@ -63,6 +63,7 @@
                      </button>
                      <div class="collapse navbar-collapse" id="navbarsExample04">
                         <ul class="navbar-nav mr-auto">
+                           {% if user.is_authenticated %}
                            <li class="nav-item active">
                               <a class="nav-link" href="{% url 'index' %}"> Home </a>
                            </li>
@@ -71,7 +72,7 @@
                               <a class="nav-link" href="{% url 'about' %}">About</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'products' %}">Products </a>
+                              <a class="nav-link" href="{% url 'products' %}">Products</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
@@ -80,12 +81,41 @@
                               <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                            </li>
                            <li class="nav-item active">
-                              <a class="nav-link" href="{% url 'login' %}"> Login </a>
+                              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                            </li>
                            <li class="nav-item d_none">
                               <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                            </li>
-               
+
+                           
+                           {% else %}
+
+
+                           <li class="nav-item active">
+                              <a class="nav-link" href="{% url 'index' %}"> Home </a>
+                           </li>
+
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'about' %}">About</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'products' %}">Products</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'blog' %}">Blog</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                           </li>
+                           <li class="nav-item active">
+                              <a class="nav-link" href="{% url 'login' %}">Login</a>
+                           </li>
+                           <li class="nav-item d_none">
+                              <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
+                           </li>
+
+                           {% endif %}
+
                         </ul>
                      </div>
                   </nav>

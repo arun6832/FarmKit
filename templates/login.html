@@ -138,10 +138,18 @@
 </style>
 <div>
     <form class="login">
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Login</button>
-    </form>
+        <h2 class="form__title">Sign In</h2>
 
-    <a href="https://codepen.io/davinci/" target="_blank">check my other pens</a>
+        <div>
+        <input required type="text" value="{{ request.POST.username }}" placeholder="Username" name="username" class="input">
+        <small class="form-text text-danger"> {{ errors.username }} </small>
+        </div>
+
+        <div>
+        <input type="password" placeholder="Password">
+        <small class="form-text text-danger"> {{ errors.username }} </small>
+        </div>
+        
+        <button class="btn">Login</button>
+    </form>
 </div>

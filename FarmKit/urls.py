@@ -25,5 +25,7 @@ urlpatterns = [
     path('blog',blog,name='blog'),
     path('contact',contact,name='contact'),
     path('products',products,name='products'),
-    path('login',login,name='login'),
+    path('login',user_login,name='login'),
+    path('logout',user_logout,name='logout'),
+
 ]
