@@ -21,6 +21,7 @@ def contact(request):
 def products(request):
     return render(request,'products.html')
 
+
 def user_register(request):
     errors = {}
     if request.method == 'POST':
@@ -51,8 +52,6 @@ def user_register(request):
 
         if is_valid:
 
-            ## Creating an user
-
             user = User.objects.create_user(
                 first_name = first_name,
                 last_name = last_name,
@@ -76,22 +75,27 @@ def user_login(request):
         username = request.POST['username']
         password = request.POST['password']
 
-        user = authenticate(request, username=username, password=password)
+        if username and password:
+            user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            return render(request,'home.html')
+            if user is not None:
+                login(request, user)
+                return render(request, 'index.html')
+            
+            else:
+                error_message = "Invalid username or password."
 
         else:
-            error_message = "Invalid username or password."
-            return render(request, 'register.html', {'error_message': error_message})
+            error_message = "Please provide both username and password."
+
+        return render(request,'login.html', {'error_message' : error_message})
     
     return render(request,'login.html')
 
 
 def user_logout(request):
     logout(request)
-    return redirect('/index')
+    return redirect('/home')
 
 def register(request):
     return render(request, 'register.html')
