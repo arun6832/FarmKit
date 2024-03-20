@@ -61,25 +61,25 @@
                         <div class="collapse navbar-collapse" id="navbarsExample04">
                            <ul class="navbar-nav mr-auto">
                               <li class="nav-item ">
-                                 <a class="nav-link" href="index.html"> Home  </a>
+                                 <a class="nav-link" href="{% url 'index' %}"> Home  </a>
                               </li>
                               <li class="nav-item active">
-                                 <a class="nav-link" href="about.html">About</a>
+                                 <a class="nav-link" href="{% url 'about' %}">About</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="products.html">Products </a>
+                                 <a class="nav-link" href="{% url 'products' %}">Products </a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="blog.html">Blog</a>
+                                 <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                               </li>
                               <li class="nav-item">
-                                 <a class="nav-link" href="contact.html">Contact</a>
+                                 <a class="nav-link" href="{% url 'contact' %}">Contact</a>
                               </li>
                               <li class="nav-item d_none">
                                  <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                               </li>
-                              <li class=" d_none get_btn">
-                                 <a  href="#">Get a quote</a>
+                              <li class="nav-item active">
+                                 <a class="nav-link" href="{% url 'login' %}"> Login </a>
                               </li>
                            </ul>
                         </div>
@@ -148,7 +148,7 @@
                                  <div class="row">
                                     <div class="col-md-12">
                                        <div class="test_box">
-                                          <i><img src="images/tes1.png" alt="#"/></i>
+                                          <i><img src="{% static 'images/tes1.png' %}" alt="#"/></i>
                                           <h4>jhone Du</h4>
                                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,</p>
                                        </div>
@@ -234,11 +234,11 @@
                   <div class="col-md-3 border_right">
                      <h3>Menus</h3>
                      <ul class="link">
-<li><a href="index.html">Home</a></li>                             
-<li><a href="about.html">About</a></li>                                                     
-<li><a href="products.html">Products</a></li>                             
-<li><a href="blog.html">Blog</a></li>
-<li><a href="contact.html">Contact</a></li>
+<li><a href="{% url 'index' %}">Home</a></li>                             
+<li><a href="{% url 'about' %}">About</a></li>                                                     
+<li><a href="{% url 'products' %}">Products</a></li>                             
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
                      </ul>
                   </div>
                   <div class="col-md-3">
@@ -263,12 +263,12 @@
       </footer>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="js/jquery.min.js"></script>
-      <script src="js/popper.min.js"></script>
-      <script src="js/bootstrap.bundle.min.js"></script>
-      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="{% static 'js/jquery.min.js' %}"></script>
+      <script src="{% static 'js/popper.min.js' %}"></script>
+      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
       <!-- sidebar -->
-      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-      <script src="js/custom.js"></script>
+      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+      <script src="{% static 'js/custom.js' %}"></script>
    </body>
 </html>
