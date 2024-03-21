@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from .forms import SoilDataForm
 import pickle
 
 def index(request):
@@ -110,30 +109,32 @@ def crop(request):
     return render(request,'crop.html')
 
 def crop_suggestion(request):
+    crop_mapping = {
+        0 : 'Apple', 1 : 'Banana', 2 : 'Black Gram', 3 : 'Chickpea', 4 : 'Coconut', 5 : 'Coffee', 6 : 'Cotton', 7 : 'Grapes', 8 : 'Jute', 9 : 'Kidney Beans', 10 : 'Lentil', 11 : 'Maize', 12 : 'Mango', 13 : 'Moth Beans', 14 : 'Mung Beans', 15 : 'Muskmelon', 16 : 'Orange', 17 : 'Papaya', 18 : 'Pigeon Peas', 19 : 'Poomogranate', 20 : 'Rice', 21 : 'Watermelon'
+    }
+
     if request.method == 'POST':
-        form = SoilDataForm(request.POST)
-        if form.is_valid():
-            # Load the serialized Random Forest model
-            with open("rf_pkl", 'rb') as file:
+            nitrogen_level = float(request.POST['nitrogen_level'])
+            phosphorus_level = float(request.POST['phosphorus_level'])
+            potassium_level = float(request.POST['potassium_level'])
+            temperature = float(request.POST['temperature'])
+            humidity_level = float(request.POST['humidity_level'])
+            ph_level = float(request.POST['ph_level'])
+            rainfall = float(request.POST['rainfall'])
+
+            with open("crop_pkl", 'rb') as file:
                 model = pickle.load(file)
-            
-            nitrogen_level = form.cleaned_data['nitrogen_level']
-            phosphorus_level = form.cleaned_data['phosphorus_level']
-            potassium_level = form.cleaned_data['potassium_level']
-            temperature = form.cleaned_data['temperature']
-            humidity_level = form.cleaned_data['humidity_level']
-            ph_level = form.cleaned_data['ph_level']
-            rainfall = form.cleaned_data['rainfall']
 
             # Extract soil data from form inputs
-            soil_data = [form.cleaned_data[attr] for attr in [nitrogen_level, phosphorus_level, potassium_level, temperature, humidity_level, ph_level, rainfall]]
+            soil_data = [nitrogen_level, phosphorus_level, potassium_level,
+                     temperature, humidity_level, ph_level, rainfall]
             
             # Make crop prediction using the loaded model
-            predicted_crop = model.predict([soil_data])[0]
+            predicted_crop_index = model.predict([soil_data])[0]
+
+            predicted_crop = crop_mapping.get(predicted_crop_index, 'Unknown Crop')
             
             # Render the result along with the template
-            return render(request, 'crop_suggestion.html', {'predicted_crop': predicted_crop})
-    else:
-        form = SoilDataForm()
+            return render(request, 'result.html', {'predicted_crop': predicted_crop})
     
-    return render(request, 'input_form.html', {'form': form})
+    return render(request, 'crop.html')
