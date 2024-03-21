@@ -37,110 +37,50 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
 </head>
 <style>
-  
-.card {
-    width: 360px;
-    min-height: 400px;
-    box-shadow: 0 0 4px #d4ecff;
-    border-radius: 4px;
+   body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-container {
+    width: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+}
+
+#message-input {
+    width: calc(100% - 70px);
+    padding: 5px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#message-form button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
     cursor: pointer;
-    background-color: #5b0000;
-    overflow: hidden;
-    transition: all 0.3s ease;
 }
 
-.card:hover {
-    box-shadow: 1px 1px 8px #d4ecff;
-    background-color: #f9fdff;
-    transform: translateY(-2px);
+#message-form button:hover {
+    background-color: #0056b3;
 }
-
-.card-header img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-}
-
-.card-content {
-    padding: 12px;
-}
-
-.news-source {
-    margin-block: 12px;
-} 
 </style>
 
-<script>
-    const API_KEY = "1d3a0eefa97b499d8fbc4ee93eeb40b7";
-const url = "https://newsapi.org/v2/everything?q=";
 
-window.addEventListener("load", () => fetchNews("India"));
-
-function reload() {
-    window.location.reload();
-}
-
-async function fetchNews(query) {
-    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data = await res.json();
-    bindData(data.articles);
-}
-
-function bindData(articles) {
-    const cardsContainer = document.getElementById("cards-container");
-    const newsCardTemplate = document.getElementById("template-news-card");
-
-    cardsContainer.innerHTML = "";
-
-    articles.forEach((article) => {
-        if (!article.urlToImage) return;
-        const cardClone = newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone, article);
-        cardsContainer.appendChild(cardClone);
-    });
-}
-
-function fillDataInCard(cardClone, article) {
-    const newsImg = cardClone.querySelector("#news-img");
-    const newsTitle = cardClone.querySelector("#news-title");
-    const newsSource = cardClone.querySelector("#news-source");
-    const newsDesc = cardClone.querySelector("#news-desc");
-
-    newsImg.src = article.urlToImage;
-    newsTitle.innerHTML = article.title;
-    newsDesc.innerHTML = article.description;
-
-    const date = new Date(article.publishedAt).toLocaleString("en-US", {
-        timeZone: "Asia/Jakarta",
-    });
-
-    newsSource.innerHTML = `${article.source.name} · ${date}`;
-
-    cardClone.firstElementChild.addEventListener("click", () => {
-        window.open(article.url, "_blank");
-    });
-}
-
-let curSelectedNav = null;
-function onNavItemClick(id) {
-    fetchNews(id);
-    const navItem = document.getElementById(id);
-    curSelectedNav?.classList.remove("active");
-    curSelectedNav = navItem;
-    curSelectedNav.classList.add("active");
-}
-
-const searchButton = document.getElementById("search-button");
-const searchText = document.getElementById("search-text");
-
-searchButton.addEventListener("click", () => {
-    const query = searchText.value;
-    if (!query) return;
-    fetchNews(query);
-    curSelectedNav?.classList.remove("active");
-    curSelectedNav = null;
-});
-</script>
 <body class="main-layout products_page">
     <!-- loader  -->
     <!-- <div class="loader_bg">
@@ -204,21 +144,63 @@ searchButton.addEventListener("click", () => {
             </div>
         </div>
     </header>
-    <main>
-        <div class="cards-container container flex" id="cards-container">
-            
+    <div class="chat-container">
+        <div id="message-container">
+            <!-- Messages will be displayed here -->
         </div>
-    </main>
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
 
-    <template id="template-news-card">
-        <div class="card">
-            <div class="card-header">
-                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
-            </div>
-            <div class="card-content">
-                <h3 id="news-title">This is the Title</h3>
-                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
-                <p class="news-desc" id="news-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae saepe quis voluptatum quisquam vitae doloremque facilis molestias quae ratione cumque!</p>
-            </div>
-        </div>
-    </template>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const messageForm = document.getElementById('message-form');
+            const messageInput = document.getElementById('message-input');
+            const messageContainer = document.getElementById('message-container');
+
+            messageForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const messageText = messageInput.value.trim();
+                if (messageText !== '') {
+                    sendMessage(messageText);
+                    messageInput.value = '';
+                }
+            });
+
+            function sendMessage(messageText) {
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/send_message/');
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        const responseData = JSON.parse(xhr.responseText);
+                        if (responseData.message) {
+                            displayMessage(responseData.message);
+                        } else {
+                            console.error('Error: No message in response data');
+                        }
+                    } else {
+                        console.error('Error sending message:', xhr.statusText);
+                    }
+                };
+                xhr.onerror = function () {
+                    console.error('Error sending message:', xhr.statusText);
+                };
+                xhr.send('message=' + encodeURIComponent(messageText));
+            }
+
+            function displayMessage(messageText) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.textContent = messageText;
+                messageContainer.appendChild(messageElement);
+                messageContainer.scrollTop = messageContainer.scrollHeight; // Scroll to bottom
+            }
+        });
+
+
+    </script>
