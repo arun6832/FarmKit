@@ -1,0 +1,34 @@
+<!-- weather_and_soil.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather and Soil Data</title>
+</head>
+<body>
+    <h1>Weather and Soil Data</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="city_name">City Name:</label>
+        <input type="text" id="city_name" name="city_name" required><br><br>
+        <label for="nitrogen_level">Nitrogen Level:</label>
+        <input type="text" id="nitrogen_level" name="nitrogen_level" required><br><br>
+        <label for="phosphorus_level">Phosphorus Level:</label>
+        <input type="text" id="phosphorus_level" name="phosphorus_level" required><br><br>
+        <label for="potassium_level">Potassium Level:</label>
+        <input type="text" id="potassium_level" name="potassium_level" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+    {% if location %}
+        <h2>Weather Stats for - {{ location.upper() }} || {{ date_time }}</h2>
+        <p>Current temperature is: {{ temp_city }}°C</p>
+        <p>Current weather description: {{ weather_desc }}</p>
+        <p>Current humidity: {{ hmdt }}%</p>
+        <p>Nitrogen Level: {{ nitrogen_level }}</p>
+        <p>Phosphorus Level: {{ phosphorus_level }}</p>
+        <p>Potassium Level: {{ potassium_level }}</p>
+    {% endif %}
+</body>
+</html>
