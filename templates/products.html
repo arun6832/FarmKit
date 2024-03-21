@@ -29,6 +29,9 @@
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -149,11 +152,12 @@
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'crop' %}">Crop Prediciton</a>
                            </li>
-                           <li class="nav-item d_none">
-                              <a class="nav-link" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                           </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'login' %}">Login / Register</a>
+                           </li>
+                           <li class="nav-item d_none">
+                              <a class="nav-link" href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping fa-xs"
+                                    style="color: #ffffff;"></i></a>
                            </li>
                         </ul>
                      </div>
@@ -324,6 +328,17 @@
                </div>
             </div>
          </div>
+         <script type="text/javascript">
+            (function(d, m){
+                var kommunicateSettings = 
+                    {"appId":"135d5b17b600445b05f7cc51441d07a75","popupWidget":true,"automaticChatOpenOnNavigation":true};
+                var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+                s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+                var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+                window.kommunicate = m; m._globals = kommunicateSettings;
+            })(document, window.kommunicate || {});
+        /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+        </script>
       </footer>
       <!-- end footer -->
       <!-- Javascript files-->

@@ -137,3 +137,6 @@ def crop_suggestion(request):
         form = SoilDataForm()
     
     return render(request, 'input_form.html', {'form': form})
+
+def news(request):
+    return render(request,'news.html')
