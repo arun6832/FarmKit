@@ -137,11 +137,4 @@ def crop_suggestion(request):
             # Render the result along with the template
             return render(request, 'result.html', {'predicted_crop': predicted_crop})
     
-<<<<<<< HEAD
-    return render(request, 'input_form.html', {'form': form})
-
-def news(request):
-    return render(request,'news.html')
-=======
     return render(request, 'crop.html')
->>>>>>> cd9b04ee1f82352dbcbce307641c06aae68c95e6
