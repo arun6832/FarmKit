@@ -105,8 +105,10 @@ def register(request):
 def cart(request):
     return render(request, 'cart.html')
 
+
 def crop(request):
     return render(request,'crop.html')
+
 
 def crop_suggestion(request):
     crop_mapping = {
@@ -114,6 +116,7 @@ def crop_suggestion(request):
     }
 
     if request.method == 'POST':
+            
             nitrogen_level = float(request.POST['nitrogen_level'])
             phosphorus_level = float(request.POST['phosphorus_level'])
             potassium_level = float(request.POST['potassium_level'])
@@ -125,17 +128,46 @@ def crop_suggestion(request):
             with open("crop_pkl", 'rb') as file:
                 model = pickle.load(file)
 
-            # Extract soil data from form inputs
             soil_data = [nitrogen_level, phosphorus_level, potassium_level,
                      temperature, humidity_level, ph_level, rainfall]
             
-            # Make crop prediction using the loaded model
             predicted_crop_index = model.predict([soil_data])[0]
 
             predicted_crop = crop_mapping.get(predicted_crop_index, 'Unknown Crop')
             
-            # Render the result along with the template
             return render(request, 'result.html', {'predicted_crop': predicted_crop})
     
     return render(request, 'crop.html')
 
+
+import requests
+from django.shortcuts import render
+from datetime import datetime
+
+def get_rain(request):
+    if request.method == 'POST':
+        user_api = "dd831f307390d80448eadc841767b847"
+        location = request.POST.get('city_name')
+        date = request.POST.get('date')
+        
+        # Integrate soil data with the weather API request
+        complete_api_link = "https://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="+user_api
+        api_link = requests.get(complete_api_link)
+        api_data = api_link.json()
+
+        # Extract weather data
+        temp_city = ((api_data['main']['temp']) - 273.15)
+        weather_desc = api_data['weather'][0]['description']
+        hmdt = api_data['main']['humidity']
+        date_time = date
+
+        # Render the template with weather and soil data
+        return render(request, 'weather_and_soil.html', {
+            'location': location,
+            'date_time': date_time,
+            'temp_city': temp_city,
+            'weather_desc': weather_desc,
+            'hmdt': hmdt,
+        })
+    else:
+        return render(request, 'weather.html')
