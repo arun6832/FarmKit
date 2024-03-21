@@ -138,3 +138,4 @@ def crop_suggestion(request):
             return render(request, 'result.html', {'predicted_crop': predicted_crop})
     
     return render(request, 'crop.html')
+
