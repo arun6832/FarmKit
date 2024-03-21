@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 import pickle
-from .models import CartItem
-from .models import Product
+
+from .models import*
 
 
 def index(request):
@@ -181,18 +181,18 @@ def predict(request):
     return render(request,'predict.html')
 
 def cart(request):
-    # Fetch product information from the database
-    vegetables = Product.objects.filter(name='Vegetable').first()
-    livestock = Product.objects.filter(name='Livestock').first()
-    fruit = Product.objects.filter(name='Fruit').first()
-    sunflower = Product.objects.filter(name='Sunflower').first()
-    wheat = Product.objects.filter(name='Wheat').first()
+    # # Fetch product information from the database
+    # vegetables = Product.objects.filter(name='Vegetable').first()
+    # livestock = Product.objects.filter(name='Livestock').first()
+    # fruit = Product.objects.filter(name='Fruit').first()
+    # sunflower = Product.objects.filter(name='Sunflower').first()
+    # wheat = Product.objects.filter(name='Wheat').first()
 
-    context = {
-        'vegetables': vegetables,
-        'livestock': livestock,
-        'fruit': fruit,
-        'sunflower': sunflower,
-        'wheat': wheat,
-    }
-    return render(request, 'cart.html', context)
+    # context = {
+    #     'vegetables': vegetables,
+    #     'livestock': livestock,
+    #     'fruit': fruit,
+    #     'sunflower': sunflower,
+    #     'wheat': wheat,
+    # }
+    return render(request, 'cart.html')

@@ -30,7 +30,7 @@
                         <a href="#" class="quantity-plus">+</a>
                     </div>
                     <div class="col product-price">Rs 900.00</div>
-                    <!-- <div class="col product-total-price">Rs 900.00</div> -->
+                    <div class="col product-total-price">Rs 900.00</div>
                     <div class="col product-remove"><span class="close">&#10005;</span></div>
                 </div>
                 <!-- End of new product section -->
@@ -46,36 +46,24 @@
             </div>
             <hr>
             <div class="row">
-               
-                <div class="col text-right" id="total-price-summary">₹ 132.00</div>
-            </div>
-            <form>
-                <p>SHIPPING</p>
-                <select>
-                    <option class="text-muted">Standard-Delivery- ₹ 5.00</option>
-                </select>
-                <p>GIVE CODE</p>
-                <input id="code" placeholder="Enter your code">
-            </form>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                
-                
-            </div>
-            <button class="btn">CHECKOUT</button>
-            
+    <div class="col" style="padding-left:0;" id="item-summary">ITEMS 3</div>
+    <div class="col text-right" id="total-price-summary">₹ 132.00</div>
+</div>
+<form>
+    <p>SHIPPING</p>
+    <select>
+        <option class="text-muted">Standard-Delivery- ₹ 5.00</option>
+    </select>
+    <p>GIVE CODE</p>
+    <input id="code" placeholder="Enter your code">
+</form>
+<div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+    
+</div>
+<button class="btn">CHECKOUT</button>
+
     </div>
 </div>
-<script type="text/javascript">
-    (function(d, m){
-        var kommunicateSettings = 
-            {"appId":"135d5b17b600445b05f7cc51441d07a75","popupWidget":true,"automaticChatOpenOnNavigation":true};
-        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-        window.kommunicate = m; m._globals = kommunicateSettings;
-    })(document, window.kommunicate || {});
-/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-</script>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
