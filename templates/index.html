@@ -54,7 +54,8 @@
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
-                           <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
+                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}" style="width: 60px; height: 50px;" alt="#" /></a>
+
                         </div>
                      </div>
                   </div>
@@ -104,13 +105,16 @@
                               <a class="nav-link" href="{% url 'about' %}">About</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'products' %}">Products</a>
+                              <a class="nav-link" href="{% url 'products' %}">Marketplace</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="{% url 'news' %}">News</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'crop' %}">Crop Prediciton</a>
@@ -487,7 +491,7 @@
                      <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
                   </ul>
                </div>
-               <div class="col-md-3 border_right">
+               <!-- <div class="col-md-3 border_right">
                   <h3>Useful Link</h3>
                   <ul class="link">
                      <li><a href="#">humour, or </a></li>
@@ -496,7 +500,7 @@
                      <li><a href="#">even slightly </a> </li>
                      <li><a href="#">believable. If </a></li>
                   </ul>
-               </div>
+               </div> -->
                <div class="col-md-3 border_right">
                   <h3>Menus</h3>
                   <ul class="link">
@@ -520,13 +524,24 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
-                     <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a></p>
+                     <!-- <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a></p> -->
                   </div>
                </div>
             </div>
          </div>
       </div>
    </footer>
+   <script type="text/javascript">
+      (function(d, m){
+          var kommunicateSettings = 
+              {"appId":"135d5b17b600445b05f7cc51441d07a75","popupWidget":true,"automaticChatOpenOnNavigation":true};
+          var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+          s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+          var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+          window.kommunicate = m; m._globals = kommunicateSettings;
+      })(document, window.kommunicate || {});
+  /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+  </script>
    <!-- end footer -->
    <!-- Javascript files-->
    <script src="{% static 'js/jquery.min.js' %}"></script>
