@@ -10,7 +10,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>jon</title>
+   <title>FarmKit</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -54,7 +54,8 @@
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
-                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}" style="width: 60px; height: 50px;" alt="#" /></a>
+                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}"
+                                 style="width: 60px; height: 50px;" alt="#" /></a>
 
                         </div>
                      </div>
@@ -83,7 +84,7 @@
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                              <a class="nav-link" href="{% url 'contact' %}">Talk With Expert</a>
                            </li>
                            <li class="nav-item active">
                               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
@@ -111,19 +112,21 @@
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                              <a class="nav-link" href="{% url 'contact' %}">Talk with Expert</a>
                            </li>
-                           
+
                            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="predictionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Prediction
+                              <a class="nav-link dropdown-toggle" href="#" id="predictionDropdown" role="button"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Prediction
                               </a>
                               <div class="dropdown-menu" aria-labelledby="predictionDropdown">
-                                  <a class="dropdown-item" href="{% url 'crop' %}">Crop Prediction</a>
-                                  <a class="dropdown-item" href="{% url 'predict' %}">Rain Prediction</a> <!-- Add Rain Prediction link here -->
+                                 <a class="dropdown-item" href="{% url 'crop' %}">Crop Prediction</a>
+                                 <a class="dropdown-item" href="{% url 'predict' %}">Rain Prediction</a>
+                                 <!-- Add Rain Prediction link here -->
                               </div>
-                          </li>
-                          
+                           </li>
+
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'login' %}">Login / Register</a>
                            </li>
@@ -151,9 +154,14 @@
             <div class="col-md-12 ">
                <div class="text-bg">
                   <h1>THE FARMING COMPANY</h1>
-                  <p>It is a long established fact that a reader will be distracted by the readable content of a page
-                     when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                     distribution of letters, as opposed to using 'Content here, content here', making it</p>
+                  <p>"Grow Smarter, Harvest Better: Your Farm's Future Starts Here with FarmKit!"
+
+
+
+
+
+
+                  </p>
                   <a href="#">Discover</a>
                </div>
             </div>
@@ -195,15 +203,15 @@
             </div>
             <div class="col-md-7">
                <div class="hottest_box">
-                  <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-                     alteration in some form, by injected humour, or randomised words which don't look even slightly
-                     believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-                     anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet
-                     tend to repeat predefined There are many variations of passages of Lorem Ipsum available, but the
-                     majority have suffered alteration in some form, by injected humour, or randomised words which don't
-                     look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be
-                     sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators
-                     on the Internet tend to repeat predefined </p>
+                  <p>Our FarmKit web app is designed to revolutionize the way you manage your farm. We provide a
+                     comprehensive suite of services that empower farmers with real-time data, smart insights, and
+                     intuitive tools. From crop monitoring and weather forecasting to resource management and task
+                     scheduling, FarmKit is your all-in-one solution for optimizing farm operations. Our user-friendly
+                     interface ensures that farmers of all technical backgrounds can easily navigate the app and
+                     leverage its powerful features. With a focus on sustainability and efficiency, we're committed to
+                     supporting farmers in making informed decisions, increasing productivity, and driving sustainable
+                     agricultural practices. Join us on the journey towards smarter, more successful farming with
+                     FarmKit. </p>
                </div>
             </div>
          </div>
@@ -319,7 +327,7 @@
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
                <div class="product_box">
                   <figure><img src="{% static 'images/product2.jpg' %}" alt="#" /></figure>
-                  <h3>weat</h3>
+                  <h3>WHeat</h3>
                </div>
             </div>
             <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 padding_right0">
@@ -331,7 +339,7 @@
             <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 padding_left0">
                <div class="product_box">
                   <figure><img src="{% static 'images/product4.jpg' %}" alt="#" /></figure>
-                  <h3>sunflowere</h3>
+                  <h3>sunflower</h3>
                </div>
             </div>
             <div class="col-xl-5 col-lg-5 col-md-5 col-sm-12 padding_right0">
@@ -370,16 +378,17 @@
                                  <div class="col-md-12">
                                     <div class="test_box">
                                        <i><img src="{% static 'images/tes1.png' %}" alt="#" /></i>
-                                       <h4>jhone Du</h4>
-                                       <p>It is a long established fact that a reader will be distracted by the readable
-                                          content of a page when looking at its layout. The point of using Lorem Ipsum
-                                          is that it has a more-or-less normal distribution of letters,It is a long
-                                          established fact that a reader will be distracted by the readable content of a
-                                          page when looking at its layout. The point of using Lorem Ipsum is that it has
-                                          a more-or-less normal distribution of letters,It is a long established fact
-                                          that a reader will be distracted by the readable content of a page when
-                                          looking at its layout. The point of using Lorem Ipsum is that it has a
-                                          more-or-less normal distribution of letters,</p>
+                                       <h4>john george</h4>
+                                       <p>FarmKit has been a game-changer in my farming journey. As someone who's
+                                          passionate about agriculture but lacked technical expertise, this app has made
+                                          everything so accessible. I can now monitor my crops, manage resources, and
+                                          stay updated on weather conditions with just a few clicks. It's like having a
+                                          knowledgeable assistant right in my pocket!
+                                          Being a busy farmer, I needed a solution that could simplify farm management
+                                          without adding more stress. FarmKit has been a lifesaver! From tracking
+                                          inventory to scheduling tasks, it has streamlined my operations and saved me
+                                          countless hours. The peace of mind I get from having everything organized is
+                                          priceless.</p>
                                     </div>
                                  </div>
                               </div>
@@ -393,60 +402,38 @@
                                  <div class="col-md-12">
                                     <div class="test_box">
                                        <i><img src="{% static 'images/tes1.png' %}" alt="#" /></i>
-                                       <h4>jhone Du</h4>
-                                       <p>It is a long established fact that a reader will be distracted by the readable
-                                          content of a page when looking at its layout. The point of using Lorem Ipsum
-                                          is that it has a more-or-less normal distribution of letters,It is a long
-                                          established fact that a reader will be distracted by the readable content of a
-                                          page when looking at its layout. The point of using Lorem Ipsum is that it has
-                                          a more-or-less normal distribution of letters,It is a long established fact
-                                          that a reader will be distracted by the readable content of a page when
-                                          looking at its layout. The point of using Lorem Ipsum is that it has a
-                                          more-or-less normal distribution of letters,</p>
+                                       <h4>alwin joesph</h4>
+                                       <p>FarmKit isn't just a tool; it's a step towards sustainable agriculture. The
+                                          app's focus on data-driven insights and best practices has helped me optimize
+                                          resource usage, minimize waste, and adopt eco-friendly farming techniques.
+                                          It's empowering to contribute positively to the environment while improving
+                                          farm productivity.FarmKit has become my reliable partner in achieving farm
+                                          success. Its reliability, accuracy, and constant updates ensure that I stay
+                                          ahead of challenges and maximize opportunities. The peace of mind I get from
+                                          using FarmKit is worth every penny invested.</p>
                                     </div>
                                  </div>
                               </div>
                            </div>
                         </div>
                      </div>
-                     <div class="carousel-item">
-                        <div class="container">
-                           <div class="carousel-caption">
-                              <div class="row">
-                                 <div class="col-md-12">
-                                    <div class="test_box">
-                                       <i><img src="{% static 'images/tes1.png' %}" alt="#" /></i>
-                                       <h4>jhone Du</h4>
-                                       <p>It is a long established fact that a reader will be distracted by the readable
-                                          content of a page when looking at its layout. The point of using Lorem Ipsum
-                                          is that it has a more-or-less normal distribution of letters,It is a long
-                                          established fact that a reader will be distracted by the readable content of a
-                                          page when looking at its layout. The point of using Lorem Ipsum is that it has
-                                          a more-or-less normal distribution of letters,It is a long established fact
-                                          that a reader will be distracted by the readable content of a page when
-                                          looking at its layout. The point of using Lorem Ipsum is that it has a
-                                          more-or-less normal distribution of letters,</p>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+
+
+
+                     <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                     </a>
+                     <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                     </a>
                   </div>
-                  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Previous</span>
-                  </a>
-                  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                     <span class="sr-only">Next</span>
-                  </a>
                </div>
             </div>
          </div>
       </div>
-   </div>
-   <!-- end about -->
+      <!-- end about -->
    </div>
    <!--  footer -->
    <footer id="contact">
@@ -537,16 +524,16 @@
       </div>
    </footer>
    <script type="text/javascript">
-      (function(d, m){
-          var kommunicateSettings = 
-              {"appId":"135d5b17b600445b05f7cc51441d07a75","popupWidget":true,"automaticChatOpenOnNavigation":true};
-          var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-          s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-          var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-          window.kommunicate = m; m._globals = kommunicateSettings;
+      (function (d, m) {
+         var kommunicateSettings =
+            { "appId": "135d5b17b600445b05f7cc51441d07a75", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+         var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+         s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+         var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+         window.kommunicate = m; m._globals = kommunicateSettings;
       })(document, window.kommunicate || {});
-  /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-  </script>
+      /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+   </script>
    <!-- end footer -->
    <!-- Javascript files-->
    <script src="{% static 'js/jquery.min.js' %}"></script>

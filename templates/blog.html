@@ -11,7 +11,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>jon</title>
+   <title>FarmKit</title>
    <meta name="keywords" content="">
    <meta name="description" content="">
    <meta name="author" content="">
@@ -54,7 +54,8 @@
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
-                           <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" alt="#" /></a>
+                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}" style="width: 60px; height: 50px;" alt="#" /></a>
+
                         </div>
                      </div>
                   </div>
@@ -79,11 +80,17 @@
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'blog' %}">Blog</a>
                            </li>
+                           <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="predictionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Prediction
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="predictionDropdown">
+                                  <a class="dropdown-item" href="{% url 'crop' %}">Crop Prediction</a>
+                                  <a class="dropdown-item" href="{% url 'predict' %}">Rain Prediction</a> <!-- Add Rain Prediction link here -->
+                              </div>
+                          </li>
                            <li class="nav-item">
-                              <a class="nav-link" href="{% url 'crop' %}">Crop Prediciton</a>
-                           </li>
-                           <li class="nav-item">
-                              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                              <a class="nav-link" href="{% url 'contact' %}">Talk with Expert</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'login' %}">Login / Register</a>
