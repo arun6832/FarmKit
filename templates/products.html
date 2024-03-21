@@ -29,7 +29,7 @@
    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
       media="screen">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
       integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
    <!--[if lt IE 9]>
@@ -89,7 +89,8 @@
       opacity: 1;
    }
 
-   .buy_button, .sell_button {
+   .buy_button,
+   .sell_button {
       display: inline-block;
       padding: 5px 10px;
       margin: 5px;
@@ -100,7 +101,8 @@
       transition: background-color 0.3s ease;
    }
 
-   .buy_button:hover, .sell_button:hover {
+   .buy_button:hover,
+   .sell_button:hover {
       background-color: #218838;
    }
 </style>
@@ -121,7 +123,8 @@
                   <div class="full">
                      <div class="center-desk">
                         <div class="logo">
-                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}" style="width: 60px; height: 50px;" alt="#" /></a>
+                           <a href="{% url 'index' %}"><img src="{% static 'images/Gemini_Generated_Image.png' %}"
+                                 style="width: 60px; height: 50px;" alt="#" /></a>
 
                         </div>
                      </div>
@@ -151,20 +154,22 @@
                               <a class="nav-link" href="{% url 'contact' %}">Talk with Expert</a>
                            </li>
                            <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="predictionDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Prediction
+                              <a class="nav-link dropdown-toggle" href="#" id="predictionDropdown" role="button"
+                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                 Prediction
                               </a>
                               <div class="dropdown-menu" aria-labelledby="predictionDropdown">
-                                  <a class="dropdown-item" href="{% url 'crop' %}">Crop Prediction</a>
-                                  <a class="dropdown-item" href="{% url 'predict' %}">Rain Prediction</a> <!-- Add Rain Prediction link here -->
+                                 <a class="dropdown-item" href="{% url 'crop' %}">Crop Prediction</a>
+                                 <a class="dropdown-item" href="{% url 'predict' %}">Rain Prediction</a>
+                                 <!-- Add Rain Prediction link here -->
                               </div>
-                          </li>
+                           </li>
                            <li class="nav-item">
                               <a class="nav-link" href="{% url 'login' %}">Login / Register</a>
                            </li>
                            <li class="nav-item d_none">
-                              <a class="nav-link" href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping fa-xs"
-                                    style="color: #ffffff;"></i></a>
+                              <a class="nav-link" href="{% url 'cart' %}"><i
+                                    class="fa-solid fa-cart-shopping fa-xs" style="color: #ffffff;"></i></a>
                            </li>
                         </ul>
                      </div>
@@ -192,170 +197,175 @@
          <div class="container-fluid">
             <div class="row">
                <!-- Product boxes with BUY and SELL buttons -->
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+               <form method="POST" action="{% url 'cart' %}">
+                  {% csrf_token %}
+                  <input type="hidden" name="product_name" value="Vegetable">
+                  <input type="hidden" name="price" value="10.00">
+                  <!-- Add other hidden fields as needed for each product -->
                   <div class="product_box">
                      <figure><img src="{% static 'images/product1.jpg' %}" alt="#" /></figure>
                      <h3 class="black">Vegetable</h3>
                      <div class="product_buttons">
-                        <a href="#" class="buy_button">BUY</a>
+                        <button type="submit">Add to Cart</button>
                         <a href="#" class="sell_button">SELL</a>
                      </div>
                   </div>
-               </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
-                  <div class="product_box">
-                     <figure><img src="{% static 'images/product2.jpg' %}" alt="#" /></figure>
-                     <h3 style="color: #fff;">wheat</h3>
-                     <div class="product_buttons">
-                        <a href="#" class="buy_button">BUY</a>
-                        <a href="#" class="sell_button">SELL</a>
-                     </div>
+               </form>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+               <div class="product_box">
+                  <figure><img src="{% static 'images/product2.jpg' %}" alt="#" /></figure>
+                  <h3 style="color: #fff;">wheat</h3>
+                  <div class="product_buttons">
+                     <a href="#" class="buy_button">BUY</a>
+                     <a href="#" class="sell_button">SELL</a>
                   </div>
                </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
-                  <div class="product_box">
-                     <figure><img src="{% static 'images/product3.jpg' %}" alt="#" /></figure>
-                     <h3 style="color: #fff;">FRUITS</h3>
-                     <div class="product_buttons">
-                        <a href="#" class="buy_button">BUY</a>
-                        <a href="#" class="sell_button">SELL</a>
-                     </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+               <div class="product_box">
+                  <figure><img src="{% static 'images/product3.jpg' %}" alt="#" /></figure>
+                  <h3 style="color: #fff;">FRUITS</h3>
+                  <div class="product_buttons">
+                     <a href="#" class="buy_button">BUY</a>
+                     <a href="#" class="sell_button">SELL</a>
                   </div>
                </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
-                  <div class="product_box">
-                     <figure><img src="{% static 'images/product4.jpg' %}" alt="#" /></figure>
-                     <h3 style="color: #fff;">SUNFLOWER</h3>
-                     <div class="product_buttons">
-                        <a href="#" class="buy_button">BUY</a>
-                        <a href="#" class="sell_button">SELL</a>
-                     </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+               <div class="product_box">
+                  <figure><img src="{% static 'images/product4.jpg' %}" alt="#" /></figure>
+                  <h3 style="color: #fff;">SUNFLOWER</h3>
+                  <div class="product_buttons">
+                     <a href="#" class="buy_button">BUY</a>
+                     <a href="#" class="sell_button">SELL</a>
                   </div>
                </div>
-               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
-                  <div class="product_box">
-                     <figure><img src="{% static 'images/product5.jpg' %}" alt="#" /></figure>
-                     <h3 style="color: #fff;">LIVESTOCK</h3>
-                     <div class="product_buttons">
-                        <a href="#" class="buy_button">BUY</a>
-                        <a href="#" class="sell_button">SELL</a>
-                     </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 padding_left0">
+               <div class="product_box">
+                  <figure><img src="{% static 'images/product5.jpg' %}" alt="#" /></figure>
+                  <h3 style="color: #fff;">LIVESTOCK</h3>
+                  <div class="product_buttons">
+                     <a href="#" class="buy_button">BUY</a>
+                     <a href="#" class="sell_button">SELL</a>
                   </div>
                </div>
-               <!-- Add similar product boxes for other products -->
+            </div>
+            <!-- Add similar product boxes for other products -->
+         </div>
+      </div>
+   </div>
+   <!-- end product  section -->
+   <!--  footer -->
+   <footer id="contact">
+      <div class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-4">
+                  <div class="titlepage">
+                     <h2>Contact Us</h2>
+                  </div>
+               </div>
+               <div class="col-md-12">
+                  <form id="request" class="main_form">
+                     <div class="row">
+                        <div class="col-md-3 ">
+                           <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
+                        </div>
+                        <div class="col-md-3">
+                           <input class="contactus" placeholder="Email" type="type" name="Email">
+                        </div>
+                        <div class="col-md-3">
+                           <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
+                        </div>
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
+                           <ul class="social_icon">
+                              <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
+                              <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                           </ul>
+                        </div>
+                        <div class="col-md-8">
+                           <textarea class="contactus1" placeholder="Message" type="type"
+                              Message="Name">Message </textarea>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                           <button class="send_btn">Send</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+               <div class="col-md-3 border_right">
+                  <ul class="location_icon">
+                     <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Locatins</li>
+                     <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i></a> +71 9087654321
+                     </li>
+                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
+                  </ul>
+               </div>
+               <div class="col-md-3 border_right">
+                  <h3>Useful Link</h3>
+                  <ul class="link">
+                     <li><a href="#">humour, or </a></li>
+                     <li><a href="#">randomised words </a> </li>
+                     <li><a href="#">which don't look </a></li>
+                     <li><a href="#">even slightly </a> </li>
+                     <li><a href="#">believable. If </a></li>
+                  </ul>
+               </div>
+               <div class="col-md-3 border_right">
+                  <h3>Menus</h3>
+                  <ul class="link">
+                     <li><a href="{% url 'index' %}">Home</a></li>
+                     <li><a href="{% url 'about' %}">About</a></li>
+                     <li><a href="{% url 'products' %}">Marketplace</a></li>
+                     <li><a href="{% url 'blog' %}">Blog</a></li>
+                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                  </ul>
+               </div>
+               <div class="col-md-3">
+                  <form class="bottom_form">
+                     <h3>Newsletter</h3>
+                     <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                     <button class="sub_btn">subscribe</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a>
+                     </p>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
-      <!-- end product  section -->
-      <!--  footer -->
-      <footer id="contact">
-         <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class="col-md-4">
-                     <div class="titlepage">
-                        <h2>Contact Us</h2>
-                     </div>
-                  </div>
-                  <div class="col-md-12">
-                     <form id="request" class="main_form">
-                        <div class="row">
-                           <div class="col-md-3 ">
-                              <input class="contactus" placeholder="Full Name" type="type" name="Full Name">
-                           </div>
-                           <div class="col-md-3">
-                              <input class="contactus" placeholder="Email" type="type" name="Email">
-                           </div>
-                           <div class="col-md-3">
-                              <input class="contactus" placeholder="Phone Number" type="type" name="Phone Number">
-                           </div>
-                           <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12">
-                              <ul class="social_icon">
-                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
-                                 <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                              </ul>
-                           </div>
-                           <div class="col-md-8">
-                              <textarea class="contactus1" placeholder="Message" type="type"
-                                 Message="Name">Message </textarea>
-                           </div>
-                           <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                              <button class="send_btn">Send</button>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-                  <div class="col-md-3 border_right">
-                     <ul class="location_icon">
-                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Locatins</li>
-                        <li><a href="#"><i class="fa fa-volume-control-phone" aria-hidden="true"></i></a> +71 9087654321
-                        </li>
-                        <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>demo@gmail.com</li>
-                     </ul>
-                  </div>
-                  <div class="col-md-3 border_right">
-                     <h3>Useful Link</h3>
-                     <ul class="link">
-                        <li><a href="#">humour, or </a></li>
-                        <li><a href="#">randomised words </a> </li>
-                        <li><a href="#">which don't look </a></li>
-                        <li><a href="#">even slightly </a> </li>
-                        <li><a href="#">believable. If </a></li>
-                     </ul>
-                  </div>
-                  <div class="col-md-3 border_right">
-                     <h3>Menus</h3>
-                     <ul class="link">
-                        <li><a href="{% url 'index' %}">Home</a></li>
-                        <li><a href="{% url 'about' %}">About</a></li>
-                        <li><a href="{% url 'products' %}">Marketplace</a></li>
-                        <li><a href="{% url 'blog' %}">Blog</a></li>
-                        <li><a href="{% url 'contact' %}">Contact</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-md-3">
-                     <form class="bottom_form">
-                        <h3>Newsletter</h3>
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="sub_btn">subscribe</button>
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="copyright">
-               <div class="container">
-                  <div class="row">
-                     <div class="col-md-12">
-                        <p>Copyright 2019 All Right Reserved By <a href="https://html.design/"> Free html Templates</a>
-                        </p>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <script type="text/javascript">
-            (function(d, m){
-                var kommunicateSettings = 
-                    {"appId":"135d5b17b600445b05f7cc51441d07a75","popupWidget":true,"automaticChatOpenOnNavigation":true};
-                var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
-                s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
-                var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
-                window.kommunicate = m; m._globals = kommunicateSettings;
-            })(document, window.kommunicate || {});
-        /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
-        </script>
-      </footer>
-      <!-- end footer -->
-      <!-- Javascript files-->
-      <script src="{% static 'js/jquery.min.js' %}"></script>
-      <script src="{% static 'js/popper.min.js' %}"></script>
-      <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-      <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
-      <!-- sidebar -->
-      <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
-      <script src="{% static 'js/custom.js' %}"></script>
+      <script type="text/javascript">
+         (function (d, m) {
+            var kommunicateSettings =
+               { "appId": "135d5b17b600445b05f7cc51441d07a75", "popupWidget": true, "automaticChatOpenOnNavigation": true };
+            var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+            s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+            var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+            window.kommunicate = m; m._globals = kommunicateSettings;
+         })(document, window.kommunicate || {});
+         /* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+      </script>
+   </footer>
+   <!-- end footer -->
+   <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+   <script src="{% static 'js/popper.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/jquery-3.0.0.min.js' %}"></script>
+   <!-- sidebar -->
+   <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+   <script src="{% static 'js/custom.js' %}"></script>
 </body>
 
 </html>
