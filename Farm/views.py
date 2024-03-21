@@ -171,3 +171,9 @@ def get_rain(request):
         })
     else:
         return render(request, 'weather.html')
+
+# def news(request):
+#     return render(request, 'news.html')
+    
+def predict(request):
+    return render(request,'predict.html')

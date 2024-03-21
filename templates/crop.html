@@ -96,6 +96,7 @@
         align-items: center;
         padding: 2rem 2rem 1.5rem;
         background-color: #d8dbce;
+        border-radius: 30px;
     }
 
     @media (min-width: 768px) {
@@ -206,10 +207,10 @@
 </style>
 
 <body>
-    <h1 style="margin-left: 240px;">Crop Prediction</h1>
+    <h1 style="margin-left: 240px; margin-top: -20px;">Crop Prediction</h1>
     <div class="container" style="margin-left: 200px;">
         <div class="cta-form">
-            <h2>Fill out the form!</h2>
+            <h2>Check Now</h2>
             <p>Check How Your Crops gonna Work</p>
         </div>
         <form method="POST" class="form" action="{% url 'suggest' %}">
@@ -237,7 +238,7 @@
             <input required type="number" value="{request.POST.rainfall}" placeholder="Rainfall (mm)" class="form__input" name="rainfall" id="rainfall" />
             <label for="id_rainfall" class="form__label">Rainfall (mm)</label>
 
-            <button type="submit" style="background-color: blue; margin-left: 120px; width: 190px; height: 40px; color: azure;" >Prediction</button>
+            <button type="submit" style="background-color: rgb(185, 182, 29); margin-left: 120px; width: 190px; height: 40px; color: azure;" >Prediction</button>
         </form>
     </div>
 </body>
