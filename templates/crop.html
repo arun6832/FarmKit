@@ -152,20 +152,6 @@
         border-radius: 2px;
         margin: 0.625rem auto;
         transition: all 250ms;
-        /* When the input field (.form__input) is in focus, 
-       transform the .form__label and change colors*/
-        /* ALSO, if the input field's placeholder is NOT shown (when the input field has content),
-       transform the .form__label and change colors. */
-        /* THIS PART IS IMPORTANT!! */
-        /* The block below hides the placeholder entirely. */
-        /* For all intents and purposes, the placeholder no longer exists. */
-        /* What shows on the input field is only the label*. */
-        /* HOWEVER, the input fields still recognizes that the placeholder exists!*/
-        /* The placeholder is just invisible. We need the placeholder to exist for
-       some weird CSS stuff. If we skip this, we can't make it CSS-only. */
-        /* When the placeholder is NOT shown,
-       style the top border. */
-        /* This makes the top border fade-out when the placeholder disappears. */
     }
 
     @media (min-width: 768px) {
@@ -215,11 +201,6 @@
         -ms-user-select: none;
         /* IE 10 and IE 11 */
         user-select: none;
-        /* Standard syntax */
-        /* THIS PART IS IMPORTANT! */
-        /* This line prevents the label from being selected.*/
-        /* This is crucial because if this line doesn't exist, users can
-       click on the label, instead of the input field. That's bad UX! */
         pointer-events: none;
     }
 </style>
@@ -231,28 +212,30 @@
             <h2>Fill out the form!</h2>
             <p>Check How Your Crops gonna Work</p>
         </div>
-        <form action="" class="form">
+        <form method="POST" class="form" action="{% url 'suggest' %}">
 
-            <input type="number" placeholder="Nitrogen Level" class="form__input" id="Nitrogen Level" />
-            <label for="Nitrogen Level" class="form__label">Nitrogen Level</label>
+            {% csrf_token %}
 
-            <input type="number" placeholder="Phosphorus Level" class="form__input" id="Phosphorus Level" />
-            <label for="Phosphorus Level" class="form__label">Phosphorus Level</label>
+            <input required type="number" value="{request.POST.nitrogen_level}" placeholder="Nitrogen Level" class="form__input" name="nitrogen_level" id="nitrogen_level"/>
+            <label for="id_nitrogen_level" class="form__label">Nitrogen Level</label>
 
-            <input type="number" placeholder="Potassium Level" class="form__input" id="Potassium Level" />
-            <label for="Potassium Level" class="form__label">Potassium Level</label>
+            <input required type="number" value="{request.POST.phosphorus_level}" placeholder="Phosphorus Level" class="form__input" name="phosphorus_level" id="phosphorus_level" />
+            <label for="id_phosphorus_level" class="form__label">Phosphorus Level</label>
 
-            <input type="number" placeholder="Temperature (°C)" class="form__input" id="Temperature (°C)" />
-            <label for="Temperature (°C)" class="form__label">Temperature (°C)</label>
+            <input required type="number" value="{request.POST.potassium_level}" placeholder="Potassium Level" class="form__input" name="potassium_level" id="potassium_level" />
+            <label for="id_potassium_level" class="form__label">Potassium Level</label>
 
-            <input type="number" placeholder="Humidity Level (%)" class="form__input" id="Humidity Level (%)" />
-            <label for="Humidity Level (%)" class="form__label">Humidity Level (%)</label>
+            <input required type="number" value="{request.POST.temperature}" placeholder="Temperature (°C)" class="form__input" name="temperature" id="temperature" />
+            <label for="id_temperature" class="form__label">Temperature (°C)</label>
 
-            <input type="number" placeholder="pH Level" class="form__input" id="pH Level" />
-            <label for="pH Level" class="form__label">pH Level</label>
+            <input required type="number" value="{request.POST.humidity_level}" placeholder="Humidity Level (%)" class="form__input" name="humidity_level" id="humidity_level" />
+            <label for="id_humidity_level" class="form__label">Humidity Level (%)</label>
 
-            <input type="number" placeholder="Rainfall (mm)" class="form__input" id="Rainfall (mm)" />
-            <label for="Rainfall (mm)" class="form__label">Rainfall (mm)</label>
+            <input required type="number" value="{request.POST.ph_level}" placeholder="pH Level" class="form__input" name="ph_level" id="ph_level" />
+            <label for="id_ph_level " class="form__label">pH Level</label>
+
+            <input required type="number" value="{request.POST.rainfall}" placeholder="Rainfall (mm)" class="form__input" name="rainfall" id="rainfall" />
+            <label for="id_rainfall" class="form__label">Rainfall (mm)</label>
 
             <button type="submit" style="background-color: blue; margin-left: 120px; width: 190px; height: 40px; color: azure;" >Prediction</button>
         </form>

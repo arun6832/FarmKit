@@ -31,7 +31,11 @@ urlpatterns = [
     path('register',user_register,name='register'),
     path('cart',cart,name='cart'),
     path('crop',crop,name='crop'),
+<<<<<<< HEAD
     path('news',news,name='news'),
 
+=======
+    path('crop_suggestion', crop_suggestion, name='suggest'),
+>>>>>>> cd9b04ee1f82352dbcbce307641c06aae68c95e6
 
 ]
